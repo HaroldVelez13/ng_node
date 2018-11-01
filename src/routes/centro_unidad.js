@@ -14,12 +14,15 @@ router_centro.get('/', (req, res) => {
   });  
 });
 
+
 // GET An Employee
-router_centro.get('empresa/:empresa_id', (req, res) => {
+router_centro.get('/empresa/:empresa_id', (req, res) => {
   const { empresa_id } = req.params; 
-  mysqlConnection.query('SELECT * FROM centrounidad WHERE empresa_id = ?', [empresa_id], (err, rows, fields) => {
+  
+  mysqlConnection.query('SELECT * FROM centrounidad WHERE empresa_id = ?', empresa_id, (err, rows, fields) => {
     if (!err) {
-      res.json(rows[0]);
+      
+      res.json(rows)
     } else {
       console.log(err);
     }

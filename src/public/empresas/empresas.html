@@ -1,0 +1,27 @@
+<div ng-controller="EmpresasController" class="container-fluid">
+    <br>
+    <h2>Lista de Empresas</h2>       
+    <div class="form-group">                
+        <input class="form-control" type="search" ng-model="s" placeholder="Buscar Empresa"/>                
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Ver Centro Unidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="e in empresas | filter:s track by e.name">
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{e.name}}</td>
+            <td>{{e.state}}</td>
+            <td>
+                <a ng-href="#!centros/{{e.id}}">Ir</a>
+            </td>
+            </tr>
+        </tbody>
+    </table>        
+</div>

@@ -1,15 +1,24 @@
 
-var app = angular.module('app', ['ngRoute', 'app.employee']);
+var app = angular.module('app', [ 'ngRoute', 
+                                  'app.employee',
+                                  'app.empresas',
+                                  'app.centros'
+                                ]);
 app.config(['$routeProvider', 
   function($routeProvider){
     $routeProvider
       .when('/', {
-		templateUrl: './employees/employee.html',
-		controller:'EmployeesController'
+		      templateUrl: './employees/employee.html',
+		      controller:'EmployeesController'
       })
-    //   .when('/about', {
-    //     template: '<h1>This is about</h1>'
-    //   })
+      .when('/empresas', {
+        templateUrl: './empresas/empresas.html',
+        controller:'EmpresasController'
+      })
+      .when('/centros/:empresa_id', {
+        templateUrl: './centro_unidad/centro_unidad.html',
+        controller:'CentrosController'
+      })
       .otherwise({
         redirectTo: '/'
       })
