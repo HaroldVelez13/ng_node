@@ -1,0 +1,22 @@
+<div ng-controller="ProductoController" class="container-fluid">
+    <br>
+    <h2>Lista de Productos</h2>       
+    <div class="form-group">                
+        <input class="form-control" type="search" ng-model="s" placeholder="Buscar Empresa"/>                
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del producto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in productos | filter:s track by p.id">
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{p.nombre}}</td>
+
+            </tr>
+        </tbody>
+    </table>        
+</div>
