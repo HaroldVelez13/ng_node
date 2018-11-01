@@ -15,11 +15,13 @@ router_bodega.get('/', (req, res) => {
 });
 
 // GET An Employee
-router_bodega.get('centro_unidad/:id', (req, res) => {
-  const { centrounidad_id } = req.params; 
-  mysqlConnection.query('SELECT * FROM bodega WHERE centrounidad_id = ?', [centrounidad_id], (err, rows, fields) => {
+router_bodega.get('/centro_unidad/:centro_id', (req, res) => {
+  const { centro_id } = req.params; 
+  console.log(req.params);
+  console.log(centro_id);
+  mysqlConnection.query('SELECT * FROM bodega WHERE centrounidad_id = ?', [centro_id], (err, rows, fields) => {
     if (!err) {
-      res.json(rows[0]);
+      res.json(rows);
     } else {
       console.log(err);
     }

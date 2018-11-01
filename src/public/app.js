@@ -2,7 +2,8 @@
 var app = angular.module('app', [ 'ngRoute', 
                                   'app.employee',
                                   'app.empresas',
-                                  'app.centros'
+                                  'app.centros',
+                                  'app.bodega'
                                 ]);
 app.config(['$routeProvider', 
   function($routeProvider){
@@ -18,6 +19,10 @@ app.config(['$routeProvider',
       .when('/centros/:empresa_id', {
         templateUrl: './centro_unidad/centro_unidad.html',
         controller:'CentrosController'
+      })
+      .when('/bodegas/:centro_id', {
+        templateUrl: './bodegas/bodegas.html',
+        controller:'BodegaController'
       })
       .otherwise({
         redirectTo: '/'

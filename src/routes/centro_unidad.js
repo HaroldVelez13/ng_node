@@ -19,7 +19,7 @@ router_centro.get('/', (req, res) => {
 router_centro.get('/empresa/:empresa_id', (req, res) => {
   const { empresa_id } = req.params; 
   
-  mysqlConnection.query('SELECT * FROM centrounidad WHERE empresa_id = ?', empresa_id, (err, rows, fields) => {
+  mysqlConnection.query('SELECT * FROM centrounidad WHERE empresa_id = ?', [empresa_id], (err, rows, fields) => {
     if (!err) {
       
       res.json(rows)

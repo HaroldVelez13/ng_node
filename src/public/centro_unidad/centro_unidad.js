@@ -5,7 +5,7 @@ centros.controller('CentrosController', ['$scope','$http','$routeParams', functi
     $scope.centros = [];
     var vm = this;    
 
-    vm.getEmployees = function(){
+    vm.getCentros = function(){
         $http.get('api/centro_unidad/empresa/'+$scope.empresa)
             .then(
                 (data)=>{
@@ -18,6 +18,6 @@ centros.controller('CentrosController', ['$scope','$http','$routeParams', functi
 
     }
 
-    vm.$onInit=vm.getEmployees();
+    vm.$onInit=vm.getCentros();
     
 }]);

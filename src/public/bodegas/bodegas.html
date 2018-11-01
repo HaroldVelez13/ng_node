@@ -1,0 +1,25 @@
+<div ng-controller="BodegaController" class="container-fluid">
+    <br>
+    <h2>Lista de Bodegas</h2>       
+    <div class="form-group">                
+        <input class="form-control" type="search" ng-model="s" placeholder="Buscar Empresa"/>                
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre de la bodega</th>
+            <th scope="col">Ver bodegas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="b in bodegas | filter:s track by b.bodega">
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{b.bodega}}</td>
+            <td>
+                <a ng-href="#!productos/{{b.id}}">Ir</a>
+            </td>
+            </tr>
+        </tbody>
+    </table>        
+</div>
